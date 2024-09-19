@@ -11,7 +11,9 @@ import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.tooling.preview.Preview
+import androidx.navigation.compose.rememberNavController
 import dagger.hilt.android.AndroidEntryPoint
+import edu.ucne.robelinconcepcion_p1_ap2.presentation.navigation.RobelinConcepcion_P1_AP2
 import edu.ucne.robelinconcepcion_p1_ap2.ui.theme.RobelinConcepcion_P1_AP2Theme
 
 @AndroidEntryPoint
@@ -21,12 +23,8 @@ class MainActivity : ComponentActivity() {
         enableEdgeToEdge()
         setContent {
             RobelinConcepcion_P1_AP2Theme {
-                Scaffold(modifier = Modifier.fillMaxSize()) { innerPadding ->
-                    Greeting(
-                        name = "Android",
-                        modifier = Modifier.padding(innerPadding)
-                    )
-                }
+              val navHostController = rememberNavController()
+                RobelinConcepcion_P1_AP2(navHostController = navHostController)
             }
         }
     }
