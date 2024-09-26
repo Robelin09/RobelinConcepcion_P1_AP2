@@ -71,14 +71,14 @@ fun VentaDetailsBodyScreen(
                 .fillMaxSize(),
         ){
             OutlinedTextField(
-                label = {Text("Cliente")},
+                label = {Text("Detalles del Cliente")},
                 value = uiState.cliente,
                 onValueChange = onClienteChange,
                 modifier = Modifier.fillMaxWidth()
             )
             OutlinedTextField(
                 modifier = Modifier.fillMaxWidth(),
-                label = { Text("Galon") },
+                label = { Text("Galones") },
                 value = uiState.galon.toString(),
                 onValueChange = { newValue ->
                     val galon = newValue.toDoubleOrNull() ?: 0.0
