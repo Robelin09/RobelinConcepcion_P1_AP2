@@ -91,6 +91,8 @@ class VentaViewModel @Inject constructor(
         _uiState.update {
             it.copy(descuentoGalon = descuentoGalon)
         }
+        actualizarDescuentoYTotal()
+
     }
 
     fun onPrecioChange(precio: Double) {
@@ -113,30 +115,32 @@ class VentaViewModel @Inject constructor(
         }
 
     }
-
     private fun actualizarDescuentoYTotal() {
+        val precioPorGalon = 100.0
 
-        val precioPorGalon = _uiState.value.galon *100
+        val precio = _uiState.value.galon * precioPorGalon
 
-        val totalDescuento = _uiState.value.precio - 10
+        val totalDescuento = _uiState.value.descuentoGalon * _uiState.value.galon
 
-        val total = (_uiState.value.galon * precioPorGalon) - totalDescuento
-
+        val total = precio - totalDescuento
 
         _uiState.update {
             it.copy(
-                precio = precioPorGalon,
+                precio = precio,
                 totalDescuento = totalDescuento,
                 total = total
             )
         }
     }
 
+
+
     fun delete() {
         viewModelScope.launch {
             ventaRepository.delete(_uiState.value.toEntity())
         }
     }
+
 
     private fun getVentas() {
         viewModelScope.launch {

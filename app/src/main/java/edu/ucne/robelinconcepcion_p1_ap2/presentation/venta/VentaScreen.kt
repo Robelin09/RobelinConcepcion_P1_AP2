@@ -96,7 +96,9 @@ fun VentaBodyScreen(
                 onValueChange = { newValue ->
                     val precio = newValue.toDoubleOrNull() ?: 0.0
                     onPrecioChange(precio)
-                }
+                },
+                        readOnly = true
+
             )
 
             OutlinedTextField(
@@ -106,18 +108,21 @@ fun VentaBodyScreen(
                 onValueChange = { newValue ->
                     val totalDescuento = newValue.toDoubleOrNull() ?: 0.0
                     onTotalDescuentoChange(totalDescuento)
-                }
+                },
+                        readOnly = true
+
             )
 
 
             OutlinedTextField(
                 modifier = Modifier.fillMaxWidth(),
                 label = { Text("Total") },
-                value = uiState.galon.toString(),
+                value = uiState.total.toString(),
                 onValueChange = { newValue ->
                     val total = newValue.toDoubleOrNull() ?: 0.0
                     onTotalChange(total)
-                }
+                },
+                readOnly = true
             )
 
             Spacer (modifier = Modifier.padding(2.dp))

@@ -120,7 +120,7 @@ fun VentaDetailsBodyScreen(
             OutlinedTextField(
                 modifier = Modifier.fillMaxWidth(),
                 label = { Text("Total") },
-                value = uiState.galon.toString(),
+                value = uiState.total.toString(),
                 onValueChange = { newValue ->
                     val total = newValue.toDoubleOrNull() ?: 0.0
                     onTotalChange(total)
