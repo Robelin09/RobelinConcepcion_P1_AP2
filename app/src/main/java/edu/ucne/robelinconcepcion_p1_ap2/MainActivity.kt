@@ -13,7 +13,7 @@ import androidx.compose.ui.Modifier
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.navigation.compose.rememberNavController
 import dagger.hilt.android.AndroidEntryPoint
-import edu.ucne.robelinconcepcion_p1_ap2.presentation.navigation.RobelinConcepcion_P1_AP2
+import edu.ucne.robelinconcepcion_p1_ap2.presentation.navigation.RobelinConcepcion_P1_AP2NavHost
 import edu.ucne.robelinconcepcion_p1_ap2.ui.theme.RobelinConcepcion_P1_AP2Theme
 
 @AndroidEntryPoint
@@ -23,8 +23,8 @@ class MainActivity : ComponentActivity() {
         enableEdgeToEdge()
         setContent {
             RobelinConcepcion_P1_AP2Theme {
-              val navHostController = rememberNavController()
-                RobelinConcepcion_P1_AP2(navHostController = navHostController)
+                val navHostController = rememberNavController()
+                RobelinConcepcion_P1_AP2NavHost(navHostController = navHostController)
             }
         }
     }
@@ -45,3 +45,5 @@ fun GreetingPreview() {
         Greeting("Android")
     }
 }
+
+
